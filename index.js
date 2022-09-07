@@ -16,41 +16,17 @@ db.query("SELECT * FROM visit", (err,result)=>{
 res.send(result)
 });   });
 
-// Route for creating the visit
-app.post('/visit/create', (req,res)=> {
-
-const count = req.body.count;
-
-db.query("INSERT INTO visit (visit) VALUES (?)",[visit], (err,result)=>{
-   if(err) {
-   console.log(err)
-   } 
-   console.log(result)
-});   })
 
 // Route to update a visit
 app.post('/visit/update/:id',(req,res)=>{
 
 const id = req.params.id;
-db.query("UPDATE visit SET count = count + 1 WHERE id = ?",id, (err,result)=>{
+db.query("UPDATE visit SET count = count + 1, updatedAt = NOW() WHERE id = ?",id, (err,result)=>{
     if(err) {
    console.log(err)   } 
    console.log(result)
     });    
 });
-
-// Route to delete a visit
-
-app.delete('/visit/delete/:id',(req,res)=>{
-const id = req.params.id;
-
-db.query("DELETE FROM visit WHERE id= ?", id, (err,result)=>{
-if(err) {
-console.log(err)
-        } }) })
-
-
-
 
 
 
@@ -64,35 +40,153 @@ res.send(result)
 });   });
 
 
-// Route for creating the visit_total
-app.post('/visit_total/create', (req,res)=> {
-const total_count = req.body.total_count;
-db.query("INSERT INTO visit_total(id, total_count, date) SELECT '', count, updatedAt FROM visit",[visit_total], (err,result)=>{
-   if(err) {
-   console.log(err)
-   } 
-   console.log(result)
-});   })
 
 
-// Route to get last record a visit_total
-app.get("/visit_total/getLastRecord", (req,res)=>{
-    db.query("SELECT * FROM visit_total ORDER BY id DESC LIMIT 1", (err,result)=>{
+// Route to update a SD_MAT
+app.post('/sd-mat/update/:id',(req,res)=>{
+
+    const id = req.params.id;
+    db.query("UPDATE sd_mat SET count = count + 1, updatedAt = NOW() WHERE id = ?",id, (err,result)=>{
         if(err) {
-        console.log(err)
-        } 
-    res.send(result)
-    });   });
+       console.log(err)   } 
+       console.log(result)
+        });    
+    });
+
+// Route to update a SD_BI
+app.post('/sd-bi/update/:id',(req,res)=>{
+
+    const id = req.params.id;
+    db.query("UPDATE sd_bi SET count = count + 1, updatedAt = NOW() WHERE id = ?",id, (err,result)=>{
+        if(err) {
+       console.log(err)   } 
+       console.log(result)
+        });    
+    });
+
+// Route to update a SD_IPA
+app.post('/sd-ipa/update/:id',(req,res)=>{
+
+    const id = req.params.id;
+    db.query("UPDATE sd_ipa SET count = count + 1, updatedAt = NOW() WHERE id = ?",id, (err,result)=>{
+        if(err) {
+       console.log(err)   } 
+       console.log(result)
+        });    
+    });
+
+// Route to update a SMP_MAT
+app.post('/smp-mat/update/:id',(req,res)=>{
+
+    const id = req.params.id;
+    db.query("UPDATE smp_mat SET count = count + 1, updatedAt = NOW() WHERE id = ?",id, (err,result)=>{
+        if(err) {
+       console.log(err)   } 
+       console.log(result)
+        });    
+    });
+
+// Route to update a SMP_BI
+app.post('/smp-bi/update/:id',(req,res)=>{
+
+    const id = req.params.id;
+    db.query("UPDATE smp_bi SET count = count + 1, updatedAt = NOW() WHERE id = ?",id, (err,result)=>{
+        if(err) {
+       console.log(err)   } 
+       console.log(result)
+        });    
+    });
+
+// Route to update a SMP_IPA
+app.post('/smp-ipa/update/:id',(req,res)=>{
+
+    const id = req.params.id;
+    db.query("UPDATE smp_ipa SET count = count + 1, updatedAt = NOW() WHERE id = ?",id, (err,result)=>{
+        if(err) {
+       console.log(err)   } 
+       console.log(result)
+        });    
+    });
+
+// Route to update a SMA_MAT
+app.post('/sma-mat/update/:id',(req,res)=>{
+
+    const id = req.params.id;
+    db.query("UPDATE sma_mat SET count = count + 1, updatedAt = NOW() WHERE id = ?",id, (err,result)=>{
+        if(err) {
+       console.log(err)   } 
+       console.log(result)
+        });    
+    });
+
+// Route to update a SMA_BI
+app.post('/sma-bi/update/:id',(req,res)=>{
+
+    const id = req.params.id;
+    db.query("UPDATE sma_bi SET count = count + 1, updatedAt = NOW() WHERE id = ?",id, (err,result)=>{
+        if(err) {
+       console.log(err)   } 
+       console.log(result)
+        });    
+    });
+
+// Route to update a SMA_IPA
+app.post('/sma-ipa/update/:id',(req,res)=>{
+
+    const id = req.params.id;
+    db.query("UPDATE sma_ipa SET count = count + 1, updatedAt = NOW() WHERE id = ?",id, (err,result)=>{
+        if(err) {
+       console.log(err)   } 
+       console.log(result)
+        });    
+    });
+
+// Route to update a Fitur Pilihan Materi
+app.post('/f-pilmat/update/:id',(req,res)=>{
+
+    const id = req.params.id;
+    db.query("UPDATE fitur_pilihan_materi SET count = count + 1, updatedAt = NOW() WHERE id = ?",id, (err,result)=>{
+        if(err) {
+       console.log(err)   } 
+       console.log(result)
+        });    
+    });
+
+// Route to update a Fitur Search
+app.post('/f-search/update/:id',(req,res)=>{
+
+    const id = req.params.id;
+    db.query("UPDATE fitur_search SET count = count + 1, updatedAt = NOW() WHERE id = ?",id, (err,result)=>{
+        if(err) {
+       console.log(err)   } 
+       console.log(result)
+        });    
+    });
+
+// Route to update a Fitur Random Topic
+app.post('/f-randtop/update/:id',(req,res)=>{
+
+    const id = req.params.id;
+    db.query("UPDATE fitur_random_topic SET count = count + 1, updatedAt = NOW() WHERE id = ?",id, (err,result)=>{
+        if(err) {
+       console.log(err)   } 
+       console.log(result)
+        });    
+    });
+
+// Route to update a Fitur FAQ
+app.post('/f-faq/update/:id',(req,res)=>{
+
+    const id = req.params.id;
+    db.query("UPDATE fitur_faq SET count = count + 1, updatedAt = NOW() WHERE id = ?",id, (err,result)=>{
+        if(err) {
+       console.log(err)   } 
+       console.log(result)
+        });    
+    });
 
 
-// Route to delete a visit
 
-app.delete('/visit_total/delete/:id',(req,res)=>{
-const id = req.params.id;
-db.query("DELETE FROM visit_total WHERE id= ?", id, (err,result)=>{
-if(err) {
-console.log(err)
-        } }) })
 
 
 
