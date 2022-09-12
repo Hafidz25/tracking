@@ -31,7 +31,7 @@ db.query("UPDATE visit SET count = count + 1, updatedAt = NOW() WHERE id = ?",id
 
 
 // Route to get visit_total
-app.get("/visit_total/get", (req,res)=>{
+app.get("/visit-total/get", (req,res)=>{
 db.query("SELECT * FROM visit_total", (err,result)=>{
     if(err) {
     console.log(err)
